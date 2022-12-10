@@ -1,3 +1,5 @@
+import java.math.BigInteger;
+
 /**
  * Library of commonly used methods across problem solutions.
   */
@@ -78,5 +80,18 @@ public class Library {
    */
   public static long choose(int n, int k) {
     return factorial(n) / (factorial(k) * (factorial(n - k)));
+  }
+
+  /**
+   * Calculates factorial using BigIntegers instead of longs.
+   *
+   * @param n Integer to find the factorial of
+   * @return Factorial value
+   */
+  public static BigInteger fact(long n) {
+    BigInteger result = BigInteger.ONE;
+    for (long i = 2; i <= n; i++)
+      result = result.multiply(BigInteger.valueOf(i));
+    return result;
   }
 }

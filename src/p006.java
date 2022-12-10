@@ -1,8 +1,6 @@
 // Project Euler.net Problem 6
 // Sum Square Difference
 
-import java.util.function.Function;
-
 public class p006 implements Euler {
 
   public static void main(String[] args) {

@@ -1,8 +1,6 @@
 // Project Euler.net Problem 18
 // Maximum path sum I
 
-import java.awt.*;
-
 public class p018 implements Euler {
 
   public static void main(String[] args) {
