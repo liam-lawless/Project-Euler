@@ -1,4 +1,6 @@
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Library of commonly used methods across problem solutions.
@@ -38,7 +40,7 @@ public class Library {
     }
     // check every value up to √n
     for (long i = 2; i <= Math.sqrt(n); i++) {
-      if(n % i == 0) {
+      if (n % i == 0) {
         return false;
       }
     }
@@ -92,6 +94,63 @@ public class Library {
     BigInteger result = BigInteger.ONE;
     for (long i = 2; i <= n; i++)
       result = result.multiply(BigInteger.valueOf(i));
+    return result;
+  }
+
+  /**
+   * Return all divisors of a given integer including that integer.
+   *
+   * @param num Number to find the divisors of.
+   * @param exclusive Include or exclude num (itself) from the list of divisors
+   * @return ArrayList of integers where every integer is a divisor of num
+   */
+  public static ArrayList<Integer> divisors(int num, boolean exclusive) {
+
+    // append all divisors of num to the array list
+    ArrayList<Integer> result = new ArrayList<Integer>();
+
+    // find the max possible divisor and type cast to integer
+    int maxDivisor = (int) Math.sqrt(num);
+
+    for (int i = 1; i <= maxDivisor; i++) {
+      // if num is evenly divisible by i, add i to the ArrayList of divisors
+      if (num % i == 0) {
+
+        // if divisors are equal, only append once
+        if (num / i == i) {
+          result.add(i);
+        } else {
+          result.add(i);
+          result.add(num / i);
+        }
+      }
+    }
+
+    // sort the list from least to greatest
+    Collections.sort(result);
+
+    // remove num from the list of divisors
+    // Result will only contain numbers less than n which divide evenly into n
+    if (exclusive) {
+      result.remove(result.size() - 1);
+    }
+
+    return result;
+  }
+
+  /**
+   * Returns the sum of all elements in an ArrayList of integers.
+   *
+   * @param list ArrayList of integers
+   * @return Sum of the array list
+   */
+  public static int sum(ArrayList<Integer> list) {
+    int result = 0;
+
+    for(int i = 0; i < list.size(); i++) {
+      result += list.get(i);
+    }
+
     return result;
   }
 }
