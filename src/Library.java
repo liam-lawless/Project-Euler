@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -46,6 +47,24 @@ public class Library {
       }
     }
     return true;
+  }
+
+  /**
+   * Generate an ArrayList of all prime numbers between 0 and a given number
+   *
+   * @param n Finds all primes up to n
+   * @return ArrayList of all prime numbers between 0 and n
+   */
+  public static ArrayList<Integer> getPrimes(int n) {
+    ArrayList<Integer> result = new ArrayList<>();
+
+    for (int i = 0; i < n; i++) {
+      if (isPrime(i)) {
+        result.add(i);
+      }
+    }
+
+    return result;
   }
 
   /**
