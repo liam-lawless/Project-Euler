@@ -1,6 +1,7 @@
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Library of commonly used methods across problem solutions.
@@ -152,5 +153,84 @@ public class Library {
     }
 
     return result;
+  }
+
+  // Function to print all the permutations of str
+  public static List<String> findPermutations(String str)
+  {
+    // base case
+    if (str == null || str.length() == 0) {
+      return null;
+    }
+
+    // create an empty ArrayList to store (partial) permutations
+    List<String> partial = new ArrayList<>();
+
+    // initialize the list with the first character of the string
+    partial.add(String.valueOf(str.charAt(0)));
+
+    // do for every character of the specified string
+    for (int i = 1; i < str.length(); i++)
+    {
+      // consider previously constructed partial permutation one by one
+
+      // (iterate backward to avoid ConcurrentModificationException)
+      for (int j = partial.size() - 1; j >= 0 ; j--)
+      {
+        // remove current partial permutation from the ArrayList
+        String s = partial.remove(j);
+
+        // Insert the next character of the specified string at all
+        // possible positions of current partial permutation. Then
+        // insert each of these newly constructed strings in the list
+
+        for (int k = 0; k <= s.length(); k++)
+        {
+          // Advice: use StringBuilder for concatenation
+          partial.add(s.substring(0, k) + str.charAt(i) + s.substring(k));
+        }
+      }
+    }
+
+    return partial;
+  }
+
+  public static ArrayList<Integer> fibonacciSequence(int limit) {
+    ArrayList<Integer> result = new ArrayList<Integer>();
+    int a = 0;
+    int b = 1;
+    int c;
+
+    for (int i = 0; i < limit; i++) {
+      result.add(a);
+
+      c = a + b;
+      a = b;
+      b = c;
+    }
+
+    return result;
+  }
+
+  public static int fibonacciNumber(int n) {
+    if (n <= 1) {
+      return n;
+    }
+
+    return fibonacciNumber(n - 1) + fibonacciNumber(n - 2);
+  }
+
+  public static BigInteger fibonacciBigInt(int n) {
+    BigInteger a = BigInteger.valueOf(0);
+    BigInteger b = BigInteger.valueOf(1);
+    BigInteger c;
+
+    for (int i = 0; i < n; i++) {
+      c = a.add(b);
+      a = b;
+      b = c;
+    }
+
+    return a;
   }
 }

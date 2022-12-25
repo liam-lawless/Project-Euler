@@ -6,16 +6,21 @@ import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class p022 {
+public class p022 implements Euler {
 
   public static void main(String[] args) throws FileNotFoundException {
     System.out.println(new p022().run());
   }
 
-  public String run() throws FileNotFoundException {
+  public String run() {
     int score = 0;
     File file = new File("/Users/liamlawless/Desktop/Coding/ProjectEuler/aux/p022_names.txt");
-    Scanner sc = new Scanner(file);
+    Scanner sc = null;
+    try {
+      sc = new Scanner(file);
+    } catch (FileNotFoundException e) {
+      throw new RuntimeException(e);
+    }
 
     // remove commas
     String[] names = sc.nextLine().split(",", -2);
@@ -30,7 +35,6 @@ public class p022 {
       // find the score of the name, multiply it by its position in the list and add it to the running sum
       score += nameScore(name) * (i + 1);
     }
-
     return Integer.toString(score);
   }
 

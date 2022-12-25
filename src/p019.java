@@ -4,13 +4,13 @@
 // How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
 // Choosing to do this without the use of any Date libraries.
 
-public class p019 {
+public class p019 implements Euler {
 
   public static void main(String[] args) {
     System.out.println(new p019().run());
   }
 
-  private String run() {
+  public String run() {
     // Tuesday Jan 1, 1901
     int dayOfTheWeek = 2;
     int numSundays = 0;

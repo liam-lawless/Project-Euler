@@ -3,7 +3,7 @@
 
 // Brute Force approach
 
-public class p021 {
+public class p021 implements Euler {
 
   public static void main(String[] args) {
     System.out.println(new p021().run());

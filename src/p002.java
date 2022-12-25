@@ -14,7 +14,9 @@ public class p002 implements Euler {
         int b = 2;
 
         while ( !(a >= 4000000) || !(b >= 4000000)) {
-            if (a % 2 == 0) {sum += a;}
+            if (a % 2 == 0) {
+                sum += a;
+            }
             int c = a + b;
             a = b;
             b = c;

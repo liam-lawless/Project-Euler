@@ -3,13 +3,13 @@
 
 // Find the sum of the digits in the number 100!
 
-public class p020 {
+public class p020 implements Euler{
 
   public static void main(String[] args) {
     System.out.println(new p020().run());
   }
 
-  private String run() {
+  public String run() {
     // Calculate the factorial of 100 using bigIntegers and convert it to a string
     String s = Library.fact(100).toString();
 
