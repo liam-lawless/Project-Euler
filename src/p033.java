@@ -1,10 +1,11 @@
 // ProjectEuler.net Problem 33
 // Digit Cancelling Fractions
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+
+// not the prettiest solution but it works :/
 
 public class p033 implements Euler {
 
