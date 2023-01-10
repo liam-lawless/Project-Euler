@@ -56,7 +56,7 @@ public class Library {
    * @return ArrayList of all prime numbers between 0 and n
    */
   public static ArrayList<Integer> getPrimes(int n) {
-    ArrayList<Integer> result = new ArrayList<>();
+    ArrayList<Integer> result = new ArrayList<Integer>();
 
     for (int i = 0; i < n; i++) {
       if (isPrime(i)) {
